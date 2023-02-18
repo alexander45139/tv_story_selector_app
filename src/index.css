@@ -1,0 +1,59 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.search-bar {
+  width: 30rem;
+}
+
+.search-bar-results {
+  display: grid;
+  position: absolute;
+  background-color: white;
+  color: black;
+  width: 30rem;
+  max-height: 32rem;
+  min-height: 5rem;
+  overflow: scroll;
+}
+
+.search-bar-results a {
+  padding: 1rem;
+  border-bottom: black solid 2px;
+}
+
+.search-bar-results a:hover {
+  background-color: blue;
+  color: white;
+}
+
+.search-bar-results a:active {
+  background-color: green;
+  color: white;
+}
+
+.search-bar-results .series-info {
+  padding: 1em;
+  margin-top: 20%;
+}
+
+.search-bar-results .no-results {
+  padding: 1em;
+}
+
+.image-left {
+  float: left;
+  padding: 1em;
+  height: auto;
+  width: 50%;
+}
