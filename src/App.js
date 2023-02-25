@@ -18,7 +18,7 @@ function App() {
 
           show.postSeries();
 
-          show.postStories();
+          //show.postStories();
 
           /*const episodes : Episode[] = await show.getEpisodes();
 
