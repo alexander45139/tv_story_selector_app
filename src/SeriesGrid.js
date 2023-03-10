@@ -1,23 +1,22 @@
 import React, {useState} from "react";
+import {Series} from "./Series";
 import './App.css';
 
 function SeriesGrid(props) {
-    const buttons = () => {
-        props.series.map(se => (
-            <button key={se.getId()}>
-                {se.name}
-                <br/>
-                <sub>({se.premiered})</sub>
-            </button>
-        ))
-    }
+    const buttons = props.shows.map(sh => (
+        <button key={sh.getApiId()}>
+            {sh.Name}
+            <br/>
+            <sub>({sh.Premiered})</sub>
+        </button>
+    ));
 
     return (
         <div>
             <p>Select a TV Series to watch:</p>
-            <table>
+            <div>
                 {buttons}
-            </table>
+            </div>
         </div>
     );
 }
