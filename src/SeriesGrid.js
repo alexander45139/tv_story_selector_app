@@ -4,7 +4,7 @@ import './App.css';
 
 function SeriesGrid(props) {
     const buttons = props.shows.map(sh => (
-        <button key={sh.getApiId()}>
+        <button onClick={() => window.location.href = `./index.html?seriesid=${sh.SeriesID}`} key={sh.getApiId()}>
             {sh.Name}
             <br/>
             <sub>({sh.Premiered})</sub>

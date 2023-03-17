@@ -4,7 +4,7 @@ import {Series} from "./Series";
 
 function SearchBarResults(props) {
     const results = props.series ? props.series.map(s => (
-        <a key={s.getId()} onClick={() => props.selectSeries(s)}>
+        <a key={s.getApiId()} onClick={() => props.selectSeries(s)}>
             {
                 <img className="image-left" src={s.image} />
             }
