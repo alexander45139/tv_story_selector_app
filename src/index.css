@@ -57,3 +57,29 @@ code {
   height: auto;
   width: 50%;
 }
+
+.grid-container {
+  display: grid;
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+}
+
+.two {
+  grid-template-columns: auto auto;
+}
+
+.three {
+  grid-template-columns: auto auto auto;
+}
+
+.four {
+  grid-template-columns: auto auto auto auto;
+}
+
+.grid-item button {
+  font-size: 0.8em;
+}
+
+.random-btn {
+  font-size: 3rem;
+}

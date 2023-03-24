@@ -6,13 +6,13 @@ function SearchBarResults(props) {
     const results = props.series ? props.series.map(s => (
         <a key={s.getApiId()} onClick={() => props.selectSeries(s)}>
             {
-                <img className="image-left" src={s.image} />
+                <img className="image-left" src={s.Image} />
             }
 
             <div className={`series-info`}>
-                {s.name}
+                {s.Name}
                 <br/>
-                <sub>({s.premiered})</sub>
+                <sub>({s.Premiered})</sub>
             </div>
         </a>
     )) : null;
