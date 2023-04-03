@@ -29,7 +29,7 @@ export class Series {
         urlencoded.append("episodateId", this.EpisodateID);
         urlencoded.append("imdbId", this.ImdbID);
 
-        fetch(`https://am2012.brighton.domains/tv_story_selector/postSeries`, {
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}/tv_story_selector/postSeries`, {
             method: 'POST',
             body: urlencoded,
             headers: {
@@ -39,15 +39,16 @@ export class Series {
         })
             .then(response => {
                 console.log(response.text());
+                this.SeriesID = response.data.id;
             })
             .catch(err => console.log(err));
     }
 
     async postStories() {
         let urlencoded = new URLSearchParams();
-        urlencoded.append("seriesId", /*get the database table Series ID*/);
+        urlencoded.append("seriesId", this.SeriesID);
 
-        fetch(`https://am2012.brighton.domains/tv_story_selector/postStories`, {
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}/tv_story_selector/postStories`, {
             method: 'POST',
             body: urlencoded,
             headers: {

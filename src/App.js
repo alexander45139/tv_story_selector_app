@@ -7,6 +7,8 @@ import {Episode} from "./Episode";
 import HomeInterface from "./HomeInterface";
 import StoryInterface from "./StoryInterface";
 
+sessionStorage.NodeAppDomain = `https://localhost` // `https://am2012.brighton.domains`
+
 function App() {
     const urlParams = new URLSearchParams(window.location.search),
         seriesId = urlParams.get('seriesid');
