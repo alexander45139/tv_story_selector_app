@@ -21,15 +21,16 @@ export class Series {
         }
     }
 
-    async postSeries() {
+    postSeriesWithStories() {
         let urlencoded = new URLSearchParams();
         urlencoded.append("name", this.Name);
         urlencoded.append("premiered", this.Premiered);
-        urlencoded.append("tvMazeId", this.TvMazeID);
-        urlencoded.append("episodateId", this.EpisodateID);
-        urlencoded.append("imdbId", this.ImdbID);
+        urlencoded.append("image", this.Image);
+        urlencoded.append("tvmazeid", this.TvMazeID);
+        urlencoded.append("episodateid", this.EpisodateID);
+        urlencoded.append("imdbid", this.ImdbID);
 
-        fetch(`${sessionStorage.getItem('NodeAppDomain')}/tv_story_selector/postSeries`, {
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/postSeries`, {
             method: 'POST',
             body: urlencoded,
             headers: {
@@ -39,16 +40,22 @@ export class Series {
         })
             .then(response => {
                 console.log(response.text());
-                this.SeriesID = response.data.id;
+
+                fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/getSeriesId?name=${this.Name}&premiered=${this.Premiered}`, {method: 'GET'})
+                    .then(response => response.json().then(result => {
+                        this.SeriesID = result.seriesId;
+                        this.postStories();
+                    }))
+                    .catch((err) => console.log(err));
             })
             .catch(err => console.log(err));
     }
 
-    async postStories() {
+    postStories() {
         let urlencoded = new URLSearchParams();
         urlencoded.append("seriesId", this.SeriesID);
 
-        fetch(`${sessionStorage.getItem('NodeAppDomain')}/tv_story_selector/postStories`, {
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/postStories`, {
             method: 'POST',
             body: urlencoded,
             headers: {
