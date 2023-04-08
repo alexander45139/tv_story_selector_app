@@ -53,7 +53,7 @@ export class Series {
 
     postStories() {
         let urlencoded = new URLSearchParams();
-        urlencoded.append("seriesId", this.SeriesID);
+        urlencoded.append("seriesid", this.SeriesID);
 
         fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/postStories`, {
             method: 'POST',

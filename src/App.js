@@ -7,31 +7,6 @@ import {Episode} from "./Episode";
 import HomeInterface from "./HomeInterface";
 import StoryInterface from "./StoryInterface";
 
-/*function App() {
-    sessionStorage.NodeAppDomain = `http://localhost:3000/` // `https://am2012.brighton.domains`
-
-    const urlParams = new URLSearchParams(window.location.search),
-        seriesId = urlParams.get('seriesid');
-
-    return (
-        <div className="App">
-            <header className="App-header">
-                <h1>TV Story Selector</h1>
-
-                {
-                    !seriesId &&
-                    <HomeInterface />
-                }
-
-                {
-                    seriesId &&
-                    <StoryInterface seriesId={seriesId} />
-                }
-            </header>
-        </div>
-    );
-}*/
-
 class App extends React.Component {
     constructor() {
         super();
