@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import './App.css';
+import '../App.css';
 import SearchBarResults from "./SearchBarResults";
-import {Series} from "./Series";
+import {Series} from "../Objects/Series";
 
 function SearchBar(props) {
     const [seriesSearchOptions, setSeriesSearchOptions] : Series[] = useState(null);

@@ -1,28 +1,12 @@
-import React, {useState} from "react";
+import React from "react";
 import './App.css';
-import SearchBar from "./SearchBar";
-import {Series} from "./Series";
-import SeriesGrid from "./SeriesGrid";
-import {Episode} from "./Episode";
-import HomeInterface from "./HomeInterface";
-import StoryInterface from "./StoryInterface";
+import StoryInterfaceWindow from "./StoryInterface/StoryInterfaceWindow";
+import HomeInterfaceWindow from "./HomeInterface/HomeInterfaceWindow";
 
 class App extends React.Component {
     constructor() {
         super();
         sessionStorage.NodeAppDomain = `http://localhost:3000/` // `https://am2012.brighton.domains`
-
-        this.state = {
-            allSeries: []
-        };
-    }
-
-    componentDidMount() {
-        fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/getAllSeries`, {method: 'GET'})
-          .then(response => response.json().then(results => {
-              this.setState({allSeries: results.series});
-          }))
-          .catch((err) => console.log(err));
     }
 
     render() {
@@ -36,12 +20,12 @@ class App extends React.Component {
 
                     {
                         !seriesId &&
-                        <HomeInterface allSeries={this.state.allSeries} />
+                        <HomeInterfaceWindow />
                     }
 
                     {
                         seriesId &&
-                        <StoryInterface seriesId={seriesId} />
+                        <StoryInterfaceWindow seriesID={seriesId} />
                     }
                 </header>
             </div>

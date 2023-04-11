@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import './App.css';
-import {Series} from "./Series";
+import '../App.css';
 
 function SearchBarResults(props) {
     const results = props.series ? props.series.map(s => (

@@ -1,13 +1,7 @@
 import React, {useState} from "react";
-import './App.css';
-import SearchBar from "./SearchBar";
-import {Series} from "./Series";
-import SeriesGrid from "./SeriesGrid";
-import {Episode} from "./Episode";
+import '../App.css';
 
-function StoryInterface(props) {
-
-
+function StoryInterfaceBase() {
     return (
         <div>
             <h2>Story</h2>
@@ -42,4 +36,4 @@ function StoryInterface(props) {
     );
 }
 
-export default StoryInterface;
+export default StoryInterfaceBase;
