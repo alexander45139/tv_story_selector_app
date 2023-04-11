@@ -1,14 +1,14 @@
 import {Episode} from "./Episode";
 
 export class Series {
-    constructor(tvMazeId, episodateId, imdbId, name, premiered, image) {
+    constructor(tvMazeId, episodateId, imdbId, name, premiered, image, seriesId?) {
         this.TvMazeID = tvMazeId;
         this.EpisodateID = episodateId;
         this.ImdbID = imdbId;
-        this.SeriesID = null;
         this.Name = name;
         this.Premiered = premiered;
         this.Image = image;
+        this.SeriesID = seriesId ? seriesId : null;
     }
 
     getApiId() {

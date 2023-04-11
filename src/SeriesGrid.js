@@ -9,7 +9,7 @@ function SeriesGrid(props) {
 
     const buttons = (props.shows && props.shows.length > 0) ? props.shows.map(sh => (
         <div className={`grid-item`}>
-            <button onClick={() => goToStoryInterface(sh.SeriesID)} key={sh.SeriesID}>
+            <button onClick={() => goToStoryInterface(sh.SeriesID)} key={sh.SeriesID ? sh.SeriesID : sh.getApiId()}>
                 {sh.Name}
                 <br/>
                 <sub>({sh.Premiered})</sub>
