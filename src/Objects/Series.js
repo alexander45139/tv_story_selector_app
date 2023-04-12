@@ -1,5 +1,3 @@
-import {Episode} from "./Episode";
-
 export class Series {
     constructor(tvMazeId, episodateId, imdbId, name, premiered, image, seriesId?) {
         this.TvMazeID = tvMazeId;

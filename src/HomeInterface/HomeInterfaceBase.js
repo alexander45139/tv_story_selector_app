@@ -10,7 +10,7 @@ function HomeInterfaceBase(props) {
 
             show.postSeriesWithStories();
             newAllSeries.push(show);
-            props.onChange(show);
+            props.onChange(newAllSeries);
         } else {
             alert(`This series has already been added`);
         }

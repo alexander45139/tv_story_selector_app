@@ -1,23 +1,28 @@
-import React, {useState} from "react";
+import React from "react";
 import '../App.css';
 
-function StoryInterfaceBase() {
+function StoryInterfaceBase(props) {
     return (
         <div>
             <h2>Story</h2>
 
+            {
+                props.series &&
+                <h3>{props.series.Name} ({props.series.Premiered})</h3>
+            }
+
             <table>
                 <tr>
                     <td>Story Name: </td>
-                    <td>This</td>
+                    <td>{props.story.Name}</td>
                 </tr>
                 <tr>
                     <td>Episode(s): </td>
-                    <td>This</td>
+                    <td>{props.story.Episodes}</td>
                 </tr>
                 <tr>
                     <td>Number of Episodes: </td>
-                    <td>This</td>
+                    <td>{props.story.NumberOfEpisodes}</td>
                 </tr>
                 <tr>
                     <td>Last Watched: </td>
@@ -25,7 +30,7 @@ function StoryInterfaceBase() {
                 </tr>
                 <tr>
                     <td>Total Duration: </td>
-                    <td>This</td>
+                    <td>{props.story.DurationMinutes}</td>
                 </tr>
                 <tr>
                     <td>Rating: </td>
