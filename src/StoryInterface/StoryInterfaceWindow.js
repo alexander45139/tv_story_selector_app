@@ -1,5 +1,5 @@
 import React from "react";
-import '../App.css';
+import '../index.css';
 import {Series} from "../Objects/Series";
 import {Story} from "../Objects/Story";
 import StoryInterfaceBase from "./StoryInterfaceBase";
@@ -10,8 +10,25 @@ class StoryInterfaceWindow extends React.Component {
         this.state = {
             stories: [],
             story: new Story(),
+            isStoryWatched: null,
             series: null
         }
+    }
+
+    getRandomStory(stories) {
+        const randomIndex = Math.floor(Math.random() * (stories.length - 1));
+        this.setState({isStoryWatched: (stories[randomIndex].LastWatched !== null)});
+        return stories[randomIndex];
+    }
+
+    handleWatchedBtn() {
+        const updatedStory = this.state.story;
+        updatedStory.LastWatched = new Date().toISOString();
+        this.setState({
+            story: updatedStory,
+            isStoryWatched: true
+        });
+        this.props.story.markAsWatched();
     }
 
     componentDidMount() {
@@ -25,22 +42,23 @@ class StoryInterfaceWindow extends React.Component {
                         st.NumberOfEpisodes,
                         st.Description,
                         st.DurationMinutes,
+                        st.LastWatched,
                         st.SeriesID
                     )
                 );
 
-                let thisStory = new Story();
+                let thisStory;
 
                 if (this.props.storyID) {
                     thisStory = allFetchedStories.filter(fs => fs.StoryID === this.props.storyID);
                 } else {
-                    const randomIndex = Math.floor(Math.random() * (allFetchedStories.length - 1));
-                    thisStory = allFetchedStories[randomIndex];
+                    thisStory = this.getRandomStory(allFetchedStories);
                 }
 
                 this.setState({
                     stories: allFetchedStories,
                     story: thisStory,
+                    isStoryWatched: (thisStory.LastWatched !== null),
                     series: results.series
                 });
             }))
@@ -49,7 +67,16 @@ class StoryInterfaceWindow extends React.Component {
 
     render() {
         return (
-            <StoryInterfaceBase story={this.state.story} series={this.state.series} />
+            <div>
+                <StoryInterfaceBase story={this.state.story}
+                                    series={this.state.series}
+                                    onSelectRandomStory={() => this.setState({
+                                        story: this.getRandomStory(this.state.stories)
+                                    })}
+                                    onClickWatchedBtn={() => this.handleWatchedBtn()}
+                                    isWatchedBtnDisabled={this.state.isStoryWatched}
+                />
+            </div>
         );
     }
 

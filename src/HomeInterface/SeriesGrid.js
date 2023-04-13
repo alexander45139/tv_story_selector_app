@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Series} from "../Objects/Series";
-import '../App.css';
+import '../index.css';
 
 function SeriesGrid(props) {
     const goToStoryInterface = (seriesId) => {

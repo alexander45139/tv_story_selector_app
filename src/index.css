@@ -81,5 +81,28 @@ code {
 }
 
 .random-btn {
+  width: 4rem;
   font-size: 3rem;
+}
+
+.home-btn {
+  align-self: self-start;
+  font-size: 6em;
+  position: absolute;
+}
+
+.home-btn a {
+  text-decoration: none;
+}
+
+.shuffle-btn {
+  font-size: 2em;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.watched-btn {
+  font-size: 1em;
+  padding: 0.5rem;
 }
