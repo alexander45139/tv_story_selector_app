@@ -15,9 +15,13 @@ class StoryInterfaceWindow extends React.Component {
         }
     }
 
+    theDate = new Date();
+    sixMonthsAgoAsStr;
+
     getRandomStory(stories) {
         const randomIndex = Math.floor(Math.random() * (stories.length - 1));
-        this.setState({isStoryWatched: (stories[randomIndex].LastWatched !== null)});
+        const lastWatched = stories[randomIndex].LastWatched;
+        this.setState({isStoryWatched: (lastWatched !== null) && (lastWatched <= this.sixMonthsAgoAsStr)});
         return stories[randomIndex];
     }
 
@@ -32,7 +36,10 @@ class StoryInterfaceWindow extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/getStories?seriesid=${this.props.seriesID}`, {method: 'GET'})
+        this.theDate.setMonth(this.theDate.getMonth() - 6);
+        this.sixMonthsAgoAsStr = this.theDate.toISOString().replace("T", " ").replace("Z", "");
+        
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/getStories?seriesid=${this.props.seriesID}&maxlastwatched=${this.sixMonthsAgoAsStr}`, {method: 'GET'})
             .then(response => response.json().then(results => {
                 const allFetchedStories: Series[] = results.stories.map(st =>
                     new Story(
@@ -58,7 +65,7 @@ class StoryInterfaceWindow extends React.Component {
                 this.setState({
                     stories: allFetchedStories,
                     story: thisStory,
-                    isStoryWatched: (thisStory.LastWatched !== null),
+                    isStoryWatched: (thisStory.LastWatched !== null) && (thisStory.LastWatched <= this.sixMonthsAgoAsStr),
                     series: results.series
                 });
             }))

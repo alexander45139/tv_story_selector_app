@@ -25,7 +25,7 @@ function SeriesGrid(props) {
                 buttons &&
                 <div>
                     <button onClick={() => {
-                        const randomIndex = Math.floor(Math.random() * (props.shows.length - 1));
+                        const randomIndex = Math.floor(Math.random() * props.shows.length);
                         goToStoryInterface(props.shows[randomIndex].SeriesID);
                     }} className={`random-btn`}>
                         ?
