@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import '../App.css';
+import './HomeInterface.css';
 import SearchBarResults from "./SearchBarResults";
 import {Series} from "../Objects/Series";
 
@@ -63,9 +63,17 @@ function SearchBar(props) {
 
     return (
         <div>
-            <input className={`search-bar`} onChange={searchSeries} type={"search"} />
             {
-                (seriesSearchOptions) &&
+                props.isLoading &&
+                <input className={`search-bar`} disabled={true} placeholder={`Loading new series. Please wait...`} />
+            }
+            {
+                !props.isLoading &&
+                <input className={`search-bar`} onChange={searchSeries} type={"search"} />
+            }
+
+            {
+                (!props.isLoading && seriesSearchOptions) &&
                 <SearchBarResults series={seriesSearchOptions} selectSeries={(s) => {
                     document.querySelector(`.search-bar`).value = ``;
                     setSeriesSearchOptions(null);

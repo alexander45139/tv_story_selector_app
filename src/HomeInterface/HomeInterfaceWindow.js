@@ -1,5 +1,4 @@
 import React from "react";
-import '../App.css';
 import {Series} from "../Objects/Series";
 import HomeInterfaceBase from "./HomeInterfaceBase";
 

@@ -1,6 +1,5 @@
-import React, {useState} from "react";
-import {Series} from "../Objects/Series";
-import '../index.css';
+import React from "react";
+import './HomeInterface.css';
 
 function SeriesGrid(props) {
     const goToStoryInterface = (seriesId) => {
@@ -22,7 +21,7 @@ function SeriesGrid(props) {
             <p>Select a TV Series to watch:</p>
 
             {
-                buttons &&
+                (buttons && !props.isLoading) &&
                 <div>
                     <button onClick={() => {
                         const randomIndex = Math.floor(Math.random() * props.shows.length);
@@ -34,6 +33,13 @@ function SeriesGrid(props) {
                     <div className={buttons.length > 3 ? `grid-container four` : buttons.length > 2 ? `grid-container three` : buttons.length > 1 ? `grid-container two` : ``}>
                         {buttons}
                     </div>
+                </div>
+            }
+
+            {
+                props.isLoading &&
+                <div align={`center`}>
+                    <div className={`loader`}></div>
                 </div>
             }
         </div>

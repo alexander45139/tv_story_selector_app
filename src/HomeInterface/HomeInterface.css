@@ -1,0 +1,93 @@
+.search-bar {
+  width: 30rem;
+}
+
+.search-bar-results {
+  display: grid;
+  position: absolute;
+  background-color: white;
+  color: black;
+  width: 30rem;
+  margin-left: 4.15em;
+  max-height: 32rem;
+  min-height: 5rem;
+  overflow: scroll;
+}
+
+.search-bar-results a {
+  padding: 1rem;
+  border-bottom: black solid 2px;
+}
+
+.search-bar-results a:hover {
+  background-color: blue;
+  color: white;
+}
+
+.search-bar-results a:active {
+  background-color: green;
+  color: white;
+}
+
+.search-bar-results .series-info {
+  padding: 1em;
+  margin-top: 20%;
+}
+
+.search-bar-results .no-results {
+  padding: 1em;
+}
+
+.image-left {
+  float: left;
+  padding: 1em;
+  height: auto;
+  width: 50%;
+}
+
+.grid-container {
+  display: grid;
+  column-gap: 0.5em;
+  row-gap: 0.5em;
+}
+
+.two {
+  grid-template-columns: auto auto;
+}
+
+.three {
+  grid-template-columns: auto auto auto;
+}
+
+.four {
+  grid-template-columns: auto auto auto auto;
+}
+
+.grid-item button {
+  font-size: 0.8em;
+}
+
+.random-btn {
+  width: 4rem;
+  font-size: 3rem;
+}
+
+.loader {
+  border: 1em solid white;
+  border-radius: 50%;
+  border-top: 1em solid blue;
+  width: 200px;
+  height: 200px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* For Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}

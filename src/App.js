@@ -6,12 +6,11 @@ import HomeInterfaceWindow from "./HomeInterface/HomeInterfaceWindow";
 class App extends React.Component {
     constructor() {
         super();
-        sessionStorage.NodeAppDomain = `http://localhost:3000/` // `https://am2012.brighton.domains`
+        sessionStorage.NodeAppDomain = `` // `http://localhost:3000/` `https://am2012.brighton.domains`
     }
 
     urlParams = new URLSearchParams(window.location.search);
     seriesId = this.urlParams.get('seriesid');
-    storyId = this.urlParams.get('storyid');
 
     render() {
         return (
@@ -22,6 +21,7 @@ class App extends React.Component {
                         <a href={`./index.html`}>&#127968;</a>
                     </div>
                 }
+
                 <header className="App-header">
                     <h1>TV Story Selector</h1>
 
@@ -32,7 +32,7 @@ class App extends React.Component {
 
                     {
                         this.seriesId &&
-                        <StoryInterfaceWindow seriesID={this.seriesId} storyID={this.storyId} />
+                        <StoryInterfaceWindow seriesID={this.seriesId} />
                     }
                 </header>
             </div>

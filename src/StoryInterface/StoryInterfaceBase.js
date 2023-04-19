@@ -1,5 +1,5 @@
 import React from "react";
-import '../index.css';
+import './StoryInterface.css';
 
 function StoryInterfaceBase(props) {
     const lastWatchedDateStr = () => {
@@ -51,7 +51,7 @@ function StoryInterfaceBase(props) {
                         </tr>
                         <tr>
                             <td>Rating: </td>
-                            <td>This</td>
+                            <td></td>
                         </tr>
                     </table>
 

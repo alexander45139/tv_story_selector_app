@@ -1,5 +1,5 @@
 import React from "react";
-import '../index.css';
+import './StoryInterface.css';
 import {Series} from "../Objects/Series";
 import {Story} from "../Objects/Story";
 import StoryInterfaceBase from "./StoryInterfaceBase";
@@ -28,17 +28,23 @@ class StoryInterfaceWindow extends React.Component {
     handleWatchedBtn() {
         const updatedStory = this.state.story;
         updatedStory.LastWatched = new Date().toISOString();
+
+        let newStories = this.state.stories;
+        newStories = newStories.filter(st => st.StoryID !== updatedStory.StoryID);
+
+        this.state.story.markAsWatched();
+
         this.setState({
+            stories: newStories,
             story: updatedStory,
             isStoryWatched: true
         });
-        this.props.story.markAsWatched();
     }
 
     componentDidMount() {
         this.theDate.setMonth(this.theDate.getMonth() - 6);
         this.sixMonthsAgoAsStr = this.theDate.toISOString().replace("T", " ").replace("Z", "");
-        
+
         fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/getStories?seriesid=${this.props.seriesID}&maxlastwatched=${this.sixMonthsAgoAsStr}`, {method: 'GET'})
             .then(response => response.json().then(results => {
                 const allFetchedStories: Series[] = results.stories.map(st =>
@@ -54,13 +60,7 @@ class StoryInterfaceWindow extends React.Component {
                     )
                 );
 
-                let thisStory;
-
-                if (this.props.storyID) {
-                    thisStory = allFetchedStories.filter(fs => fs.StoryID === this.props.storyID);
-                } else {
-                    thisStory = this.getRandomStory(allFetchedStories);
-                }
+                const thisStory = this.getRandomStory(allFetchedStories);
 
                 this.setState({
                     stories: allFetchedStories,

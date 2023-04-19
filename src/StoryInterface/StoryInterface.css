@@ -1,0 +1,21 @@
+.home-btn {
+  align-self: self-start;
+  font-size: 6em;
+  position: absolute;
+}
+
+.home-btn a {
+  text-decoration: none;
+}
+
+.refresh-btn {
+  font-size: 2em;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.watched-btn {
+  font-size: 1em;
+  padding: 0.5rem;
+}
