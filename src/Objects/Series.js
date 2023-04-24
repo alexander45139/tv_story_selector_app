@@ -23,7 +23,7 @@ export class Series {
         let urlencoded = new URLSearchParams();
         urlencoded.append("seriesid", this.SeriesID);
 
-        await fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/postStories`, {
+        await fetch(`${sessionStorage.getItem('NodeAppDomain')}postStories`, {
             method: 'POST',
             body: urlencoded,
             headers: {
@@ -46,7 +46,7 @@ export class Series {
         urlencoded.append("episodateid", this.EpisodateID);
         urlencoded.append("imdbid", this.ImdbID);
 
-        await fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/postSeries`, {
+        await fetch(`${sessionStorage.getItem('NodeAppDomain')}postSeries`, {
             method: 'POST',
             body: urlencoded,
             headers: {
@@ -59,7 +59,7 @@ export class Series {
             })
             .catch(err => console.log(err));
 
-        await fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/getSeriesId?name=${this.Name}&premiered=${this.Premiered}`, {method: 'GET'})
+        await fetch(`${sessionStorage.getItem('NodeAppDomain')}getSeriesId?name=${this.Name}&premiered=${this.Premiered}`, {method: 'GET'})
             .then(response => response.json().then(result => {
                 this.SeriesID = result.seriesId;
             }))

@@ -14,7 +14,7 @@ export class Story {
         let urlencoded = new URLSearchParams();
         urlencoded.append("storyid", this.StoryID);
 
-        fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/markStoryAsWatched`, {
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}markStoryAsWatched`, {
             method: 'POST',
             body: urlencoded,
             headers: {

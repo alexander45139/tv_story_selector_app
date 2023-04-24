@@ -45,7 +45,7 @@ class StoryInterfaceWindow extends React.Component {
         this.theDate.setMonth(this.theDate.getMonth() - 6);
         this.sixMonthsAgoAsStr = this.theDate.toISOString().replace("T", " ").replace("Z", "");
 
-        fetch(`${sessionStorage.getItem('NodeAppDomain')}tv_story_selector/getStories?seriesid=${this.props.seriesID}&maxlastwatched=${this.sixMonthsAgoAsStr}`, {method: 'GET'})
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}getStories?seriesid=${this.props.seriesID}&maxlastwatched=${this.sixMonthsAgoAsStr}`, {method: 'GET'})
             .then(response => response.json().then(results => {
                 const allFetchedStories: Series[] = results.stories.map(st =>
                     new Story(
