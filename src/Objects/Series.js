@@ -1,5 +1,5 @@
 export class Series {
-    constructor(tvMazeId, episodateId, imdbId, name, premiered, image, seriesId?) {
+    constructor(tvMazeId, episodateId, imdbId, name, premiered, image, seriesId = null) {
         this.TvMazeID = tvMazeId;
         this.EpisodateID = episodateId;
         this.ImdbID = imdbId;

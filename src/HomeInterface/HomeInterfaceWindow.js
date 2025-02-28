@@ -1,5 +1,5 @@
 import React from "react";
-import {Series} from "../Objects/Series";
+import { Series } from "../Objects/Series";
 import HomeInterfaceBase from "./HomeInterfaceBase";
 
 class HomeInterfaceWindow extends React.Component {

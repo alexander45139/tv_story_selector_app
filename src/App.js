@@ -6,7 +6,7 @@ import HomeInterfaceWindow from "./HomeInterface/HomeInterfaceWindow";
 class App extends React.Component {
     constructor() {
         super();
-        sessionStorage.NodeAppDomain = ``; // `http://localhost:3000/tv_story_selector/` `https://am2012.brighton.domainstv_story_selector/`
+        sessionStorage.NodeAppDomain = `http://localhost:3000/tv_story_selector/`; // `http://localhost:3000/tv_story_selector/` `https://am2012.brighton.domainstv_story_selector/`
     }
 
     urlParams = new URLSearchParams(window.location.search);
