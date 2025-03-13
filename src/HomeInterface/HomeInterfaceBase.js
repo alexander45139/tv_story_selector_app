@@ -21,7 +21,7 @@ function HomeInterfaceBase(props) {
     }
 
     return (
-        <div>
+        <div className="home-interface-container">
             <h2>Home</h2>
 
             <SearchBar selectSeries={(s) => addToSeries(s)}

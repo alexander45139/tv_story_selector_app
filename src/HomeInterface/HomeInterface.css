@@ -1,5 +1,11 @@
+.home-interface-container {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 20em;
+}
+
 .search-bar {
-  width: 30rem;
+  width: 100%;
 }
 
 .search-bar-results {

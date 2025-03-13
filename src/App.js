@@ -24,7 +24,9 @@ class App extends React.Component {
 
                 <header className="App-header">
                     <h1>TV Story Selector</h1>
+                </header>
 
+                <main className="App-main">
                     {
                         !this.seriesId &&
                         <HomeInterfaceWindow />
@@ -34,7 +36,7 @@ class App extends React.Component {
                         this.seriesId &&
                         <StoryInterfaceWindow seriesID={this.seriesId} />
                     }
-                </header>
+                </main>
             </div>
         )
     };
