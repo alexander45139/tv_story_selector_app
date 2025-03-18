@@ -1,11 +1,21 @@
 .home-btn {
   align-self: self-start;
-  font-size: 6em;
+  font-size: 5vw;
   position: absolute;
 }
 
 .home-btn a {
   text-decoration: none;
+}
+
+.story-interface-container {
+  display: grid;
+  justify-content: center;
+}
+
+.story-info-container {
+  display: grid;
+  row-gap: 3vh;
 }
 
 .refresh-btn {

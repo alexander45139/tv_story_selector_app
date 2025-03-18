@@ -13,7 +13,7 @@ function StoryInterfaceBase(props) {
     };
 
     return (
-        <div>
+        <div className="story-interface-container">
             <h2>Story</h2>
 
             {
@@ -23,7 +23,7 @@ function StoryInterfaceBase(props) {
 
             {
                 props.story &&
-                <div>
+                <div className="story-info-container">
                     <button className={`refresh-btn`} onClick={() => props.onSelectRandomStory()}>
                         &#128260;
                     </button>

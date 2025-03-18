@@ -1,7 +1,7 @@
 .home-interface-container {
   display: grid;
-  justify-content: center;
-  grid-template-columns: 20em;
+  justify-items: center;
+  grid-template-columns: 1fr;
 }
 
 .search-bar {
@@ -13,15 +13,20 @@
   position: absolute;
   background-color: white;
   color: black;
-  width: 30rem;
-  max-height: 30rem;
-  min-height: 5rem;
+  width: 10.5em;
+  max-height: 50vh;
+  min-height: 30vh;
   overflow: scroll;
 }
 
 .search-bar-results a {
-  padding: 1rem;
+  display: grid;
   border-bottom: black solid 2px;
+  grid-template-columns: 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  padding: 1vw;
+  column-gap: 1vw;
 }
 
 .search-bar-results a:hover {
@@ -35,25 +40,24 @@
 }
 
 .search-bar-results .series-info {
-  padding: 1em;
-  margin-top: 20%;
+  display: grid;
+  align-items: center;
 }
 
 .search-bar-results .no-results {
-  padding: 1em;
+  display: grid;
+  align-items: center;
 }
 
 .image-left {
-  float: left;
-  padding: 1em;
   height: auto;
-  width: 50%;
+  width: 100%;
 }
 
 .grid-container {
   display: grid;
-  column-gap: 0.5em;
-  row-gap: 0.5em;
+  margin-top: 2vh;
+  gap: 3%;
 }
 
 .two {
