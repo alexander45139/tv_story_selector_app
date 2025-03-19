@@ -75,14 +75,20 @@ class StoryInterfaceWindow extends React.Component {
     render() {
         return (
             <div>
-                <StoryInterfaceBase story={this.state.story}
-                                    series={this.state.series}
-                                    onSelectRandomStory={() => this.setState({
-                                        story: this.getRandomStory(this.state.stories)
-                                    })}
-                                    onClickWatchedBtn={() => this.handleWatchedBtn()}
-                                    isWatchedBtnDisabled={this.state.isStoryWatched}
-                />
+                <main>
+                    <StoryInterfaceBase story={this.state.story}
+                                        series={this.state.series}
+                                        onSelectRandomStory={() => this.setState({
+                                            story: this.getRandomStory(this.state.stories)
+                                        })}
+                                        onClickWatchedBtn={() => this.handleWatchedBtn()}
+                                        isWatchedBtnDisabled={this.state.isStoryWatched}
+                    />
+                </main>
+
+                <aside>
+                    <StoriesList stories={this.state.stories} />
+                </aside>
             </div>
         );
     }
