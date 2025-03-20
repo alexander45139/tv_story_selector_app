@@ -3,6 +3,7 @@ import './StoryInterface.css';
 import {Series} from "../Objects/Series";
 import {Story} from "../Objects/Story";
 import StoryInterfaceBase from "./StoryInterfaceBase";
+import StoriesList from "./StoriesList";
 
 class StoryInterfaceWindow extends React.Component {
     constructor(props) {
@@ -74,7 +75,7 @@ class StoryInterfaceWindow extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="story-interface-window-container">
                 <main>
                     <StoryInterfaceBase story={this.state.story}
                                         series={this.state.series}
@@ -92,8 +93,6 @@ class StoryInterfaceWindow extends React.Component {
             </div>
         );
     }
-
-
 }
 
 export default StoryInterfaceWindow;

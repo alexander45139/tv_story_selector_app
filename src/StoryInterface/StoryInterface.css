@@ -8,6 +8,11 @@
   text-decoration: none;
 }
 
+.story-interface-window-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
 .story-interface-container {
   display: grid;
   justify-content: center;
@@ -30,4 +35,8 @@
 .watched-btn {
   font-size: 1em;
   padding: 0.5rem;
+}
+
+.stories-list-container {
+  display: grid;
 }
