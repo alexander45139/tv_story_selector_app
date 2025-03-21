@@ -3,7 +3,7 @@ import './StoryInterface.css';
 import {Series} from "../Objects/Series";
 import {Story} from "../Objects/Story";
 import StoryInterfaceBase from "./StoryInterfaceBase";
-import StoriesList from "./StoriesList";
+import StoriesListWindow from "./StoriesListWindow";
 
 class StoryInterfaceWindow extends React.Component {
     constructor(props) {
@@ -12,7 +12,8 @@ class StoryInterfaceWindow extends React.Component {
             stories: [],
             story: new Story(),
             isStoryWatched: null,
-            series: null
+            series: null,
+            isStoriesListShown: false
         }
     }
 
@@ -75,21 +76,29 @@ class StoryInterfaceWindow extends React.Component {
 
     render() {
         return (
-            <div className="story-interface-window-container">
-                <main>
-                    <StoryInterfaceBase story={this.state.story}
-                                        series={this.state.series}
-                                        onSelectRandomStory={() => this.setState({
-                                            story: this.getRandomStory(this.state.stories)
-                                        })}
-                                        onClickWatchedBtn={() => this.handleWatchedBtn()}
-                                        isWatchedBtnDisabled={this.state.isStoryWatched}
+            <div>
+                {
+                    this.state.isStoriesListShown &&
+                    <StoriesListWindow stories={this.state.stories}
+                                       selectStory={(s) => this.setState({
+                                           story: s,
+                                           isStoriesListShown: false
+                                       })}
+                                       closeWindow={() => this.setState({
+                                           isStoriesListShown: false
+                                       })}
                     />
-                </main>
+                }
 
-                <aside>
-                    <StoriesList stories={this.state.stories} />
-                </aside>
+                <StoryInterfaceBase story={this.state.story}
+                                    series={this.state.series}
+                                    onSelectRandomStory={() => this.setState({
+                                        story: this.getRandomStory(this.state.stories)
+                                    })}
+                                    showStoriesList={() => this.setState({isStoriesListShown: true})}
+                                    onClickWatchedBtn={() => this.handleWatchedBtn()}
+                                    isWatchedBtnDisabled={this.state.isStoryWatched}
+                />
             </div>
         );
     }
