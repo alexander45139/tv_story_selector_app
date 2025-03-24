@@ -30,3 +30,14 @@
     transform: rotate(360deg);
   }
 }
+
+button {
+  background-color: #e84711;
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #61dafb;
+}

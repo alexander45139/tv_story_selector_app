@@ -3,7 +3,7 @@ import './StoryInterface.css';
 
 function StoriesListWindow(props) {
     const listItems = props.stories.map(story => (
-        <li className="stories-list-item">
+        <li key={story.StoryID}>
             <button onClick={() => props.selectStory(story)}>
                 {story.Name}
             </button>

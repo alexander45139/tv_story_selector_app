@@ -21,10 +21,11 @@ class StoryInterfaceWindow extends React.Component {
     sixMonthsAgoAsStr;
 
     getRandomStory(stories) {
-        const randomIndex = Math.floor(Math.random() * (stories.length - 1));
-        const lastWatched = stories[randomIndex].LastWatched;
+        const filteredStories = stories.filter(st => (st.LastWatched == null) || (st.LastWatched > this.sixMonthsAgoAsStr));
+        const randomIndex = Math.floor(Math.random() * (filteredStories.length - 1));
+        const lastWatched = filteredStories[randomIndex].LastWatched;
         this.setState({isStoryWatched: (lastWatched !== null) && (lastWatched <= this.sixMonthsAgoAsStr)});
-        return stories[randomIndex];
+        return filteredStories[randomIndex];
     }
 
     handleWatchedBtn() {
@@ -47,7 +48,7 @@ class StoryInterfaceWindow extends React.Component {
         this.theDate.setMonth(this.theDate.getMonth() - 6);
         this.sixMonthsAgoAsStr = this.theDate.toISOString().replace("T", " ").replace("Z", "");
 
-        fetch(`${sessionStorage.getItem('NodeAppDomain')}getStories?seriesid=${this.props.seriesID}&maxlastwatched=${this.sixMonthsAgoAsStr}`, {method: 'GET'})
+        fetch(`${sessionStorage.getItem('NodeAppDomain')}getStories?seriesid=${this.props.seriesID}`, {method: 'GET'})
             .then(response => response.json().then(results => {
                 const allFetchedStories: Series[] = results.stories.map(st =>
                     new Story(

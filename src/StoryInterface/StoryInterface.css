@@ -33,6 +33,10 @@
   border: none;
 }
 
+.choose-stories-btn {
+  font-size: 1.5em;
+}
+
 .watched-btn {
   font-size: 1em;
   padding: 0.5rem;
@@ -70,6 +74,6 @@
   gap: 3vw;
 }
 
-.stories-list-item {
-
+.stories-list-container li {
+  list-style-position: inside;
 }
