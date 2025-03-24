@@ -13,7 +13,7 @@ function StoriesListWindow(props) {
     return (
         <div className="stories-list-window">
             <header>
-                <h3>Stories</h3>
+                <h2>Stories</h2>
                 <a className={"close-btn"}
                    onClick={() => props.closeWindow()}
                 >

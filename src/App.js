@@ -15,15 +15,17 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                {
-                    this.seriesId &&
-                    <div className={`home-btn`}>
-                        <a href={`./index.html`}>&#127968;</a>
-                    </div>
-                }
-
                 <header className="App-header">
+                    <div className={`home-btn`}>
+                        {
+                            this.seriesId &&
+                            <a href={`./index.html`}>&#127968;</a>
+                        }
+                    </div>
+
                     <h1>TV Story Selector</h1>
+
+                    <button className="settings-btn">&#9965;</button>
                 </header>
 
                 <main className="App-main">

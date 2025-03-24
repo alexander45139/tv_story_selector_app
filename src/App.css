@@ -6,11 +6,23 @@
 }
 
 .App-header {
-  display: inline-block;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
   font-size: calc(10px + 2vmin);
+  justify-items: center;
+  align-items: center;
+}
+
+.home-btn {
+  font-size: 5vw;
+}
+
+.home-btn a {
+  text-decoration: none;
+}
+
+.settings-btn {
+  font-size: 1.5em;
 }
 
 .App-main {
@@ -35,6 +47,7 @@ button {
   background-color: #e84711;
   color: white;
   border: none;
+  padding: 0.5rem;
   transition: 0.3s;
 }
 

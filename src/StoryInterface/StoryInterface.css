@@ -1,13 +1,3 @@
-.home-btn {
-  align-self: self-start;
-  font-size: 5vw;
-  position: absolute;
-}
-
-.home-btn a {
-  text-decoration: none;
-}
-
 .story-interface-container {
   display: grid;
   justify-content: center;
@@ -27,7 +17,7 @@
 }
 
 .refresh-btn {
-  font-size: 2em;
+  font-size: 2.5em;
   cursor: pointer;
   background: none;
   border: none;
@@ -39,7 +29,6 @@
 
 .watched-btn {
   font-size: 1em;
-  padding: 0.5rem;
 }
 
 .stories-list-window {
@@ -47,15 +36,8 @@
   background-color: #20545b;
   border: solid 2px black;
   height: 70vh;
-  overflow: auto;
   display: grid;
   justify-self: anchor-center;
-}
-
-.stories-list-window header {
-  position: sticky;
-  top: 0;
-  background-color: #20545b;
 }
 
 .close-btn {
@@ -66,12 +48,18 @@
   color: red;
   margin-right: 1vw;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #61dafb;
 }
 
 .stories-list-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3vw;
+  overflow: auto;
 }
 
 .stories-list-container li {
