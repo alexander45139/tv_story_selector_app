@@ -5,7 +5,7 @@
 }
 
 .search-bar {
-  width: 100%;
+  width: 50vw;
 }
 
 .search-bar-results {
@@ -13,20 +13,21 @@
   position: absolute;
   background-color: white;
   color: black;
-  width: 10.5em;
+  width: 50vw;
   max-height: 50vh;
   min-height: 30vh;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .search-bar-results a {
   display: grid;
   border-bottom: black solid 2px;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-items: center;
   align-items: center;
   padding: 1vw;
   column-gap: 1vw;
+  cursor: pointer;
 }
 
 .search-bar-results a:hover {
@@ -50,8 +51,8 @@
 }
 
 .image-left {
-  height: auto;
-  width: 100%;
+  height: 100%;
+  width: auto;
 }
 
 .grid-container {
@@ -74,10 +75,12 @@
 
 .grid-item button {
   font-size: 0.8em;
+  cursor: pointer;
 }
 
 .random-btn {
   font-size: 3rem;
+  cursor: pointer;
 }
 
 .loader {

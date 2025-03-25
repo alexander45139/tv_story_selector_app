@@ -1,5 +1,6 @@
 import React from "react";
 import './StoryInterface.css';
+import '../App.css';
 
 function StoriesListWindow(props) {
     const listItems = props.stories.map(story => (
@@ -11,7 +12,7 @@ function StoriesListWindow(props) {
     ));
 
     return (
-        <div className="stories-list-window">
+        <div className="popup-window">
             <header>
                 <h2>Stories</h2>
                 <a className={"close-btn"}

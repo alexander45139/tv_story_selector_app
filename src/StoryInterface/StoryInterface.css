@@ -25,34 +25,11 @@
 
 .choose-stories-btn {
   font-size: 1.5em;
+  cursor: pointer;
 }
 
 .watched-btn {
   font-size: 1em;
-}
-
-.stories-list-window {
-  position: absolute;
-  background-color: #20545b;
-  border: solid 2px black;
-  height: 70vh;
-  display: grid;
-  justify-self: anchor-center;
-}
-
-.close-btn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 2em;
-  color: red;
-  margin-right: 1vw;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.close-btn:hover {
-  color: #61dafb;
 }
 
 .stories-list-container {

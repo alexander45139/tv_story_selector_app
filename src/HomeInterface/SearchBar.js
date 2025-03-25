@@ -65,11 +65,18 @@ function SearchBar(props) {
         <div>
             {
                 props.isLoading &&
-                <input className={`search-bar`} disabled={true} placeholder={`Loading new series. Please wait...`} />
+                <input className={`search-bar`}
+                       disabled={true}
+                       placeholder={`Loading new series. Please wait...`}
+                />
             }
             {
                 !props.isLoading &&
-                <input className={`search-bar`} onChange={searchSeries} type={"search"} />
+                <input className={`search-bar`}
+                       onChange={searchSeries}
+                       type={"search"}
+                       placeholder={`Search series...`}
+                />
             }
 
             {
