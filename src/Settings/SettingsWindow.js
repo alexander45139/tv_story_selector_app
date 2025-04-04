@@ -1,5 +1,5 @@
 import React from "react";
-import
+import "./SettingsWindow.css";
 import '../App.css';
 
 function SettingsWindow(props) {
@@ -15,7 +15,12 @@ function SettingsWindow(props) {
             </header>
 
             <div className="settings-container">
-
+                <label>Skip Stories Watched In Last </label>
+                <input type={"number"} />
+                <select>
+                    <option>Month(s)</option>
+                    <option>Year(s)</option>
+                </select>
             </div>
         </div>
     )

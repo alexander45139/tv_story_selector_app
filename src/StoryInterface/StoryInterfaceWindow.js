@@ -18,13 +18,13 @@ class StoryInterfaceWindow extends React.Component {
     }
 
     theDate = new Date();
-    sixMonthsAgoAsStr;
+    timeSpanToSkipLastWatchedStoriesAsStr;
 
     getRandomStory(stories) {
-        const filteredStories = stories.filter(st => (st.LastWatched == null) || (st.LastWatched > this.sixMonthsAgoAsStr));
+        const filteredStories = stories.filter(st => (st.LastWatched == null) || (st.LastWatched < this.timeSpanToSkipLastWatchedStoriesAsStr));
         const randomIndex = Math.floor(Math.random() * (filteredStories.length - 1));
         const lastWatched = filteredStories[randomIndex].LastWatched;
-        this.setState({isStoryWatched: (lastWatched !== null) && (lastWatched <= this.sixMonthsAgoAsStr)});
+        this.setState({isStoryWatched: (lastWatched !== null) && (lastWatched <= this.timeSpanToSkipLastWatchedStoriesAsStr)});
         return filteredStories[randomIndex];
     }
 
@@ -32,13 +32,9 @@ class StoryInterfaceWindow extends React.Component {
         const updatedStory = this.state.story;
         updatedStory.LastWatched = new Date().toISOString();
 
-        let newStories = this.state.stories;
-        newStories = newStories.filter(st => st.StoryID !== updatedStory.StoryID);
-
         this.state.story.markAsWatched();
 
         this.setState({
-            stories: newStories,
             story: updatedStory,
             isStoryWatched: true
         });
@@ -46,7 +42,7 @@ class StoryInterfaceWindow extends React.Component {
 
     componentDidMount() {
         this.theDate.setMonth(this.theDate.getMonth() - 6);
-        this.sixMonthsAgoAsStr = this.theDate.toISOString().replace("T", " ").replace("Z", "");
+        this.timeSpanToSkipLastWatchedStoriesAsStr = this.theDate.toISOString().replace("T", " ").replace("Z", "");
 
         fetch(`${sessionStorage.getItem('NodeAppDomain')}getStories?seriesid=${this.props.seriesID}`, {method: 'GET'})
             .then(response => response.json().then(results => {
@@ -68,7 +64,7 @@ class StoryInterfaceWindow extends React.Component {
                 this.setState({
                     stories: allFetchedStories,
                     story: thisStory,
-                    isStoryWatched: (thisStory.LastWatched !== null) && (thisStory.LastWatched <= this.sixMonthsAgoAsStr),
+                    isStoryWatched: (thisStory.LastWatched !== null) && (thisStory.LastWatched <= this.timeSpanToSkipLastWatchedStoriesAsStr),
                     series: results.series
                 });
             }))
@@ -83,7 +79,8 @@ class StoryInterfaceWindow extends React.Component {
                     <StoriesListWindow stories={this.state.stories}
                                        selectStory={(s) => this.setState({
                                            story: s,
-                                           isStoriesListShown: false
+                                           isStoriesListShown: false,
+                                           isStoryWatched: false
                                        })}
                                        closeWindow={() => this.setState({
                                            isStoriesListShown: false

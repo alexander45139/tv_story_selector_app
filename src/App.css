@@ -56,6 +56,10 @@ button:hover {
   background-color: #61dafb;
 }
 
+button:disabled {
+  background-color: #ccc;
+}
+
 .popup-window {
   position: absolute;
   background-color: #20545b;
