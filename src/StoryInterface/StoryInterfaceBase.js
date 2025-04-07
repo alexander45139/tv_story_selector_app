@@ -1,5 +1,6 @@
 import React from "react";
 import './StoryInterface.css';
+import StoryInfo from './StoryInfo';
 
 function StoryInterfaceBase(props) {
     const lastWatchedDateStr = () => {
@@ -23,7 +24,7 @@ function StoryInterfaceBase(props) {
 
             {
                 props.story &&
-                <div className="story-info-container">
+                <div className="story-container">
                     <div className="story-btns-container">
                         <button className={`refresh-btn`}
                                 onClick={() => props.onSelectRandomStory()}
@@ -38,32 +39,14 @@ function StoryInterfaceBase(props) {
                         </button>
                     </div>
 
-                    <table>
-                        <tr>
-                            <td>Story Name: </td>
-                            <td>{props.story.Name}</td>
-                        </tr>
-                        <tr>
-                            <td>Episode(s): </td>
-                            <td>{props.story.Episodes}</td>
-                        </tr>
-                        <tr>
-                            <td>Number of Episodes: </td>
-                            <td>{props.story.NumberOfEpisodes}</td>
-                        </tr>
-                        <tr>
-                            <td>Last Watched: </td>
-                            <td>{lastWatchedDateStr()}</td>
-                        </tr>
-                        <tr>
-                            <td>Total Duration: </td>
-                            <td>{props.story.DurationMinutes}</td>
-                        </tr>
-                        <tr>
-                            <td>Rating: </td>
-                            <td></td>
-                        </tr>
-                    </table>
+                    <div className="story-info-container">
+                        <StoryInfo title={"Story Name"} value={props.story.Name} />
+                        <StoryInfo title={"Episode(s)"} value={props.story.Episodes} />
+                        <StoryInfo title={"Number of Episodes"} value={props.story.NumberOfEpisodes} />
+                        <StoryInfo title={"Last Watched"} value={() => lastWatchedDateStr()} />
+                        <StoryInfo title={"Total Duration"} value={props.story.DurationMinutes} />
+                        <StoryInfo title={"Rating"} value={""} />
+                    </div>
 
                     <button className={`watched-btn`}
                             onClick={() => props.onClickWatchedBtn()}

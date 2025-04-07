@@ -3,7 +3,7 @@
   justify-content: center;
 }
 
-.story-info-container {
+.story-container {
   display: flex;
   row-gap: 3vh;
   flex-direction: column;
@@ -41,4 +41,22 @@
 
 .stories-list-container li {
   list-style-position: inside;
+}
+
+.story-info-container {
+  display: grid;
+  justify-items: center;
+  row-gap: 1vh;
+}
+
+.story-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2vw;
+  justify-items: center;
+  width: -webkit-fill-available;
+}
+
+.story-info:hover {
+  background-color: #e84711;
 }
