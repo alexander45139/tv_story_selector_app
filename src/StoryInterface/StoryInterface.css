@@ -46,7 +46,7 @@
 .story-info-container {
   display: grid;
   justify-items: center;
-  row-gap: 1vh;
+  row-gap: 2vh;
 }
 
 .story-info {
@@ -58,5 +58,5 @@
 }
 
 .story-info:hover {
-  background-color: #e84711;
+  font-weight: bold;
 }
