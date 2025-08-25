@@ -3,6 +3,10 @@ import "./SettingsWindow.css";
 import '../App.css';
 
 function SettingsWindow(props) {
+    const submitSettings = () => {
+        // TODO
+    }
+
     return (
         <div className="popup-window">
             <header>
@@ -15,12 +19,20 @@ function SettingsWindow(props) {
             </header>
 
             <div className="settings-container">
-                <label>Skip Stories Watched In Last </label>
-                <input type={"number"} />
-                <select>
-                    <option>Month(s)</option>
-                    <option>Year(s)</option>
-                </select>
+                <form onSubmit={submitSettings}>
+                    <div>
+                        <label>Skip Stories Watched In Last </label>
+                        <input type={"number"} />
+                        <select>
+                            <option>Month(s)</option>
+                            <option>Year(s)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <input type={"submit"} />
+                    </div>
+                </form>
             </div>
         </div>
     )

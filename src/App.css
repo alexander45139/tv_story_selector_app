@@ -66,8 +66,9 @@ button:disabled {
   border: solid 2px black;
   height: 70vh;
   width: 60vw;
-  display: grid;
+  display: flex;
   justify-self: anchor-center;
+  flex-direction: column;
 }
 
 .close-btn {
