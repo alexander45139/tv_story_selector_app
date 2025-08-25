@@ -3,15 +3,7 @@ import './StoryInterface.css';
 import StoryInfo from './StoryInfo';
 
 function StoryInterfaceBase(props) {
-    const lastWatchedDateStr = () => {
-        const lastWatched = props.story.LastWatched;
-
-        if (lastWatched) {
-            return lastWatched.substr(0, lastWatched.indexOf("T"));
-        } else {
-            return null;
-        }
-    };
+    const lastWatchedDateStr = props.story.LastWatched?.substr(0, props.story.LastWatched.indexOf("T"));
 
     return (
         <div className="story-interface-container">
@@ -43,7 +35,7 @@ function StoryInterfaceBase(props) {
                         <StoryInfo title={"Story Name"} value={props.story.Name} />
                         <StoryInfo title={"Episode(s)"} value={props.story.Episodes} />
                         <StoryInfo title={"Number of Episodes"} value={props.story.NumberOfEpisodes} />
-                        <StoryInfo title={"Last Watched"} value={() => lastWatchedDateStr()} />
+                        <StoryInfo title={"Last Watched"} value={lastWatchedDateStr} />
                         <StoryInfo title={"Total Duration"} value={props.story.DurationMinutes} />
                         <StoryInfo title={"Rating"} value={""} />
                     </div>
